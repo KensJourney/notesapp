@@ -1,0 +1,59 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Notes{% endblock %}
+
+{% block content %}
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-4">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="h1 fw-bold">Search, Read, Buy, Review</h1>
+        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
+          etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Make an account</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+    <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="pb-3 h5">All Notes</div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+
+
+
+
+
+
+
+
+        {% for note in notes %}
+
+        <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">
+            <div class="row align-items-center">
+              <div class="col-md-8 mb-3 mb-sm-0">
+                <h5>
+                  <a href="#" class="text-primary">{{note.title}}</a>
+                </h5>
+                <p class="text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">{{note.created_date}}</a> <span class="op-6"> by</span> <a class="text-black" href="{{ note.get_absolute_url }}">{{note.author}}</a></p>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+
+{% endblock %}
+
+
